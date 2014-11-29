@@ -24,5 +24,18 @@ namespace WhiteBoard.Pages
         {
             InitializeComponent();
         }
+
+        private void Settings_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            TBColor.Text = Globals.color + "";
+        }
+
+        private void TBColor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                UInt32.TryParse(TBColor.Text, out Globals.color);
+            }
+        }
     }
 }
