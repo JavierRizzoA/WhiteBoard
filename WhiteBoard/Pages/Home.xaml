@@ -4,8 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid Style="{StaticResource ContentRoot}">
-        <TextBlock Text="Hello Modern UI!" />
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <Button x:Name="BtnConnect" Content="Connect to Wiimote" Click="BtnConnect_Click"></Button>
+                <Canvas Width="256" Height="192" Background="White" x:Name="canvas">
+                    
+                </Canvas>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
