@@ -71,14 +71,14 @@ namespace WhiteBoard.Pages
         private void UpdateImage(IRState irState)
         {
 
-            System.Drawing.Point p = new System.Drawing.Point((int)(irState.IRSensors[0].RawPosition.X / 4), (int)(irState.IRSensors[0].RawPosition.Y / 4));
+            System.Drawing.Point p = new System.Drawing.Point((int)(irState.IRSensors[0].RawPosition.X / 3), (int)(irState.IRSensors[0].RawPosition.Y / 3));
             App.Current.Dispatcher.Invoke((Action)delegate
             {
                 System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
                 rect.Stroke = new SolidColorBrush(Colors.Blue);
                 rect.Fill = new SolidColorBrush(Colors.Blue);
-                rect.Width = 2;
-                rect.Height = 2;
+                rect.Width = 3;
+                rect.Height = 3;
                 Canvas.SetLeft(rect, p.X);
                 Canvas.SetBottom(rect, p.Y);
                 this.canvas.Children.Add(rect);
@@ -100,6 +100,11 @@ namespace WhiteBoard.Pages
             {
                 encoder.Save(file);
             }
+        }
+
+        private void BtnSetBoundaries_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

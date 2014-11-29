@@ -7,8 +7,24 @@
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
-            <StackPanel MinWidth="200">
-                <Button x:Name="BtnConnect" Content="Connect to Wiimote" Click="BtnConnect_Click"></Button>
+            <StackPanel MinWidth="300">
+                <Grid Margin="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*" ></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="10">
+                        <Button x:Name="BtnConnect" Content="Connect to Wiimote" Click="BtnConnect_Click"></Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <Button x:Name="BtnSetBoundaries" Content="Set boundaries" Click="BtnSetBoundaries_Click" ></Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock VerticalAlignment="Center" FontSize="20" Text="0" />
+                    </StackPanel>
+                </Grid>
+                
                 <Canvas Width="500" Height="300" Background="White" x:Name="canvas">
                     
                 </Canvas>
