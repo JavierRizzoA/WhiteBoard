@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Web;
 
 namespace WhiteBoardImages
 {
@@ -6,22 +9,21 @@ namespace WhiteBoardImages
     // NOTE: In order to launch WCF Test Client for testing this service, please select ImageService.svc or ImageService.svc.cs at the Solution Explorer and start debugging.
     public class ImageService : IImageService
     {
-        public string GetData(int value)
+        public List<string> SavedImages()
         {
-            return string.Format("You entered: {0}", value);
-        }
+            var hostname = Environment.MachineName;
+            var imagesFolder = HttpContext.Current.Request.MapPath("Images");
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
+            var images = new List<string>();
+            var imageNames = new DirectoryInfo(imagesFolder).GetFiles("*.jpg");
+
+            foreach (var imageName in imageNames)
             {
-                throw new ArgumentNullException("composite");
+                var imageURI = string.Format("http://{0}{1}{2}", hostname, "/WhiteBoardImages/Images/", imageName.Name);
+                images.Add(imageURI);
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+
+            return images;
         }
     }
 }

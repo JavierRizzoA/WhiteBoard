@@ -10,6 +10,7 @@
                 <mui:Link DisplayName="Home" Source="Pages/Home.xaml" />
                 <mui:Link DisplayName="Settings" Source="Pages/Settings.xaml"/>
                 <mui:Link DisplayName="About" Source="Pages/About.xaml"/>
+                <mui:Link DisplayName="Images" Source="Pages/Images.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
