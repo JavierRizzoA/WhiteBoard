@@ -31,6 +31,8 @@ namespace WhiteBoard.Business.ServiceImage {
         
         private System.Threading.SendOrPostCallback SavedImagesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SaveImageOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +75,9 @@ namespace WhiteBoard.Business.ServiceImage {
         public event SavedImagesCompletedEventHandler SavedImagesCompleted;
         
         /// <remarks/>
+        public event SaveImageCompletedEventHandler SaveImageCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IImageService/SavedImages", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
@@ -98,6 +103,36 @@ namespace WhiteBoard.Business.ServiceImage {
             if ((this.SavedImagesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SavedImagesCompleted(this, new SavedImagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IImageService/SaveImage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SaveImage([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary", IsNullable=true)] byte[] bytes, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string fileName) {
+            this.Invoke("SaveImage", new object[] {
+                        bytes,
+                        fileName});
+        }
+        
+        /// <remarks/>
+        public void SaveImageAsync(byte[] bytes, string fileName) {
+            this.SaveImageAsync(bytes, fileName, null);
+        }
+        
+        /// <remarks/>
+        public void SaveImageAsync(byte[] bytes, string fileName, object userState) {
+            if ((this.SaveImageOperationCompleted == null)) {
+                this.SaveImageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveImageOperationCompleted);
+            }
+            this.InvokeAsync("SaveImage", new object[] {
+                        bytes,
+                        fileName}, this.SaveImageOperationCompleted, userState);
+        }
+        
+        private void OnSaveImageOperationCompleted(object arg) {
+            if ((this.SaveImageCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaveImageCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -145,6 +180,10 @@ namespace WhiteBoard.Business.ServiceImage {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    public delegate void SaveImageCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

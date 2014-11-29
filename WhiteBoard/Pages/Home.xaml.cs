@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WhiteBoard.Business.Services;
+using WhiteBoard.Models.Data;
 using WiimoteLib;
 using System.Drawing;
 using System.Threading;
@@ -27,11 +29,14 @@ namespace WhiteBoard.Pages
         Wiimote wm;
         Boolean connected, recording;
 
+        private readonly ImageService _imgService;
+
         public Home()
         {
             connected = false;
             recording = false;
             wm = new Wiimote();
+            _imgService = new ImageService();
             InitializeComponent();
         }
 
@@ -96,10 +101,28 @@ namespace WhiteBoard.Pages
             PngBitmapEncoder encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
 
-            using (FileStream file = File.Create("./image.png"))
+            var imageName = string.Format("{0}{1}{2}{3}{4}{5}.png", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+            var response = new Response();
+            using (MemoryStream memoryStream = new MemoryStream())
             {
-                encoder.Save(file);
+                encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+                encoder.Save(memoryStream);
+
+                response = _imgService.SaveImage(memoryStream.ToArray(), imageName);
             }
+            if (response.Succesfull)
+            {
+                MessageBox.Show("Imagen guardada exitosamente");
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+            //using (FileStream file = File.Create("./image.png"))
+            //{
+
+            //    encoder.Save(file);
+            //}
         }
     }
 }

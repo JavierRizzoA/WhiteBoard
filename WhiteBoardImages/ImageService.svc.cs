@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Web;
+using System.Web.UI;
 
 namespace WhiteBoardImages
 {
@@ -17,7 +18,7 @@ namespace WhiteBoardImages
             var imagesFolder = string.Format("{0}{1}", apPath, "Images");
 
             var images = new List<string>();
-            var imageNames = new DirectoryInfo(imagesFolder).GetFiles("*.jpg");
+            var imageNames = new DirectoryInfo(imagesFolder).GetFiles("*.png");
 
             foreach (var imageName in imageNames)
             {
@@ -27,6 +28,15 @@ namespace WhiteBoardImages
 
             return images;
         }
+
+        public void SaveImage(byte[] bytes, string fileName)
+        {
+            var apPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
+            var imagesFolder = string.Format("{0}{1}", apPath, "Images/");
+
+            File.WriteAllBytes(imagesFolder + fileName, bytes);
+        }
+
         //public string GetData(int value)
         //{
         //    return string.Format("You entered: {0}", value);

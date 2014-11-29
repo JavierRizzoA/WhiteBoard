@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 using WhiteBoard.Business.Services;
+using WhiteBoard.Models.Data;
 
 namespace WhiteBoard.Pages
 {
@@ -24,8 +26,7 @@ namespace WhiteBoard.Pages
 
             if (response.Succesfull)
             {
-                lvImages.ItemsSource = response.Data;
-
+                lvImages.ItemsSource = new ObservableCollection<Dataimage>(response.Data);
             }
             else
             {
