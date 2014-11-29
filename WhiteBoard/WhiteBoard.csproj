@@ -145,16 +145,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WhiteBoard.Business\WhiteBoard.Business.csproj">
-      <Project>{1669b83f-72c1-49d0-bc58-a233d2da0a32}</Project>
-      <Name>WhiteBoard.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhiteBoard.Models\WhiteBoard.Models.csproj">
-      <Project>{08048f85-b433-40a0-9b3f-b5105d0582ec}</Project>
-      <Name>WhiteBoard.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
