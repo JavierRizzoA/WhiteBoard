@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="WhiteBoard_Business_ServiceImage_ImageService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://lstken40222/WhiteBoardImages/ImageService.svc</Value>
+      <Value Profile="(Default)">http://lstken40222/WhiteBoardImages/Imageservice.svc</Value>
     </Setting>
   </Settings>
 </SettingsFile>

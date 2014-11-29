@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBoard.Models", "WhiteB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBoard.Business", "WhiteBoard.Business\WhiteBoard.Business.csproj", "{1669B83F-72C1-49D0-BC58-A233D2DA0A32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBoardImages", "WhiteBoardImages\WhiteBoardImages.csproj", "{62F56194-4473-4F13-BFD4-F55939C2F664}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBoardImages", "WhiteBoardImages\WhiteBoardImages.csproj", "{E514BDE1-29C6-440E-AC85-8FF3853AE610}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{1669B83F-72C1-49D0-BC58-A233D2DA0A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1669B83F-72C1-49D0-BC58-A233D2DA0A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1669B83F-72C1-49D0-BC58-A233D2DA0A32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62F56194-4473-4F13-BFD4-F55939C2F664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62F56194-4473-4F13-BFD4-F55939C2F664}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62F56194-4473-4F13-BFD4-F55939C2F664}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62F56194-4473-4F13-BFD4-F55939C2F664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E514BDE1-29C6-440E-AC85-8FF3853AE610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E514BDE1-29C6-440E-AC85-8FF3853AE610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E514BDE1-29C6-440E-AC85-8FF3853AE610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E514BDE1-29C6-440E-AC85-8FF3853AE610}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

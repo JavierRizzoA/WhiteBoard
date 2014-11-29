@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://lstken40222/WhiteBoardImages/ImageService.svc?xsd=xsd1" filename="ImageService.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://lstken40222/WhiteBoardImages/ImageService.svc?xsd=xsd0" filename="ImageService0.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://lstken40222/WhiteBoardImages/ImageService.svc?disco" filename="ImageService.disco" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://lstken40222/WhiteBoardImages/ImageService.svc?xsd=xsd2" filename="ImageService1.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://lstken40222/WhiteBoardImages/ImageService.svc?wsdl" filename="ImageService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://lstken40222/WhiteBoardImages/Imageservice.svc?xsd=xsd0" filename="Imageservice.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://lstken40222/WhiteBoardImages/Imageservice.svc?disco" filename="Imageservice.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://lstken40222/WhiteBoardImages/Imageservice.svc?xsd=xsd1" filename="Imageservice0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://lstken40222/WhiteBoardImages/Imageservice.svc?wsdl" filename="ImageService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://lstken40222/WhiteBoardImages/Imageservice.svc?xsd=xsd2" filename="Imageservice1.xsd" />
   </Results>
 </DiscoveryClientResultsFile>

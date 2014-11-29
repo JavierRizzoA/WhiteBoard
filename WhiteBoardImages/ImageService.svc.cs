@@ -12,7 +12,9 @@ namespace WhiteBoardImages
         public List<string> SavedImages()
         {
             var hostname = Environment.MachineName;
-            var imagesFolder = HttpContext.Current.Request.MapPath("Images");
+
+            var apPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
+            var imagesFolder = string.Format("{0}{1}", apPath, "Images");
 
             var images = new List<string>();
             var imageNames = new DirectoryInfo(imagesFolder).GetFiles("*.jpg");
@@ -25,5 +27,22 @@ namespace WhiteBoardImages
 
             return images;
         }
+        //public string GetData(int value)
+        //{
+        //    return string.Format("You entered: {0}", value);
+        //}
+
+        //public CompositeType GetDataUsingDataContract(CompositeType composite)
+        //{
+        //    if (composite == null)
+        //    {
+        //        throw new ArgumentNullException("composite");
+        //    }
+        //    if (composite.BoolValue)
+        //    {
+        //        composite.StringValue += "Suffix";
+        //    }
+        //    return composite;
+        //}
     }
 }

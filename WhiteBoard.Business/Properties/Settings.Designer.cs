@@ -26,7 +26,7 @@ namespace WhiteBoard.Business.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://lstken40222/WhiteBoardImages/ImageService.svc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://lstken40222/WhiteBoardImages/Imageservice.svc")]
         public string WhiteBoard_Business_ServiceImage_ImageService {
             get {
                 return ((string)(this["WhiteBoard_Business_ServiceImage_ImageService"]));
