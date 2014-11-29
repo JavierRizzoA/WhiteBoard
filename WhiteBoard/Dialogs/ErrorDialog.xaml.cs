@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,23 +13,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FirstFloor.ModernUI.Windows.Controls;
 
-namespace WhiteBoard
+namespace WhiteBoard.Dialogs
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ErrorDialog.xaml
     /// </summary>
-    public partial class MainWindow : ModernWindow
+    public partial class ErrorDialog : ModernDialog
     {
-        public MainWindow()
+        public ErrorDialog()
         {
             InitializeComponent();
+
+            // define the dialog buttons
+            this.Buttons = new Button[] { this.OkButton};
         }
 
-        private void ModernWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void SetMessage(String message)
         {
-            App.Current.Dispatcher.InvokeShutdown();
+            this.message.Text = message;
         }
     }
 }
