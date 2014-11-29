@@ -9,9 +9,12 @@
         <ScrollViewer>
             <StackPanel MinWidth="200">
                 <Button x:Name="BtnConnect" Content="Connect to Wiimote" Click="BtnConnect_Click"></Button>
-                <Canvas Width="256" Height="192" Background="White" x:Name="canvas">
+                <Canvas Width="500" Height="300" Background="White" x:Name="canvas">
                     
                 </Canvas>
+                <Button x:Name="Save" Content="Save as image" Click="Save_Click">
+                    
+                </Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

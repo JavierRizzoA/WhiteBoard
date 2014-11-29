@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using WhiteBoard.Models.Data;
 
 namespace WhiteBoard.Business.Services
@@ -14,12 +15,12 @@ namespace WhiteBoard.Business.Services
             imgSVC = new ServiceImage.ImageService();
         }
 
-        public Response<IEnumerable<string>> ObatainSavedimages()
+        public Response<IEnumerable<Dataimage>> ObatainSavedimages()
         {
-            var response = new Response<IEnumerable<string>>();
+            var response = new Response<IEnumerable<Dataimage>>();
             try
             {
-                response.Data = imgSVC.SavedImages();
+                response.Data = imgSVC.SavedImages().Select(x=>new Dataimage{ImageUri = new Uri(x)});
             }
             catch (Exception ex)
             {

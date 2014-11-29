@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using WhiteBoard.Business.Services;
-using WhiteBoard.ViewModels;
 
 namespace WhiteBoard.Pages
 {
@@ -12,13 +11,10 @@ namespace WhiteBoard.Pages
     {
 
         private readonly ImageService _imgService;
-        private readonly ImagesViewModel _imagesViewModel;
         public Images()
         {
             InitializeComponent();
             _imgService = new ImageService();
-            _imagesViewModel = new ImagesViewModel();
-            DataContext = _imagesViewModel;
             LoadImages();
         }
 
@@ -29,6 +25,7 @@ namespace WhiteBoard.Pages
             if (response.Succesfull)
             {
                 lvImages.ItemsSource = response.Data;
+
             }
             else
             {
