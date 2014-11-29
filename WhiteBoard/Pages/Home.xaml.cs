@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WiimoteLib;
 using System.Drawing;
 using System.Threading;
+using System.IO;
 
 namespace WhiteBoard.Pages
 {
@@ -58,7 +59,6 @@ namespace WhiteBoard.Pages
             }
         }
 
-        [STAThread]
         private void wm_WiimoteChanged(object sender, WiimoteChangedEventArgs args)
         {
             if (recording)
@@ -68,7 +68,6 @@ namespace WhiteBoard.Pages
             }
         }
 
-        [STAThread]
         private void UpdateImage(IRState irState)
         {
 
@@ -78,8 +77,8 @@ namespace WhiteBoard.Pages
                 System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
                 rect.Stroke = new SolidColorBrush(Colors.Blue);
                 rect.Fill = new SolidColorBrush(Colors.Blue);
-                rect.Width = 4;
-                rect.Height = 4;
+                rect.Width = 2;
+                rect.Height = 2;
                 Canvas.SetLeft(rect, p.X);
                 Canvas.SetBottom(rect, p.Y);
                 this.canvas.Children.Add(rect);
@@ -88,17 +87,19 @@ namespace WhiteBoard.Pages
 
         }
 
-
-        private void demo(Canvas canvas)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
-            rect.Stroke = new SolidColorBrush(Colors.Blue);
-            rect.Fill = new SolidColorBrush(Colors.Blue);
-            rect.Width = 4;
-            rect.Height = 4;
-            Canvas.SetLeft(rect, 10);
-            Canvas.SetTop(rect, 10);
-            //this.canvas.Children.Add(rect);  
+            RenderTargetBitmap renderBitmap = new RenderTargetBitmap((int)canvas.Width, (int)canvas.Height, 96d, 69d, PixelFormats.Pbgra32);
+            canvas.Measure(new System.Windows.Size((int)canvas.Width, (int)canvas.Height));
+            canvas.Arrange(new Rect(new System.Windows.Size((int)canvas.Width, (int)canvas.Height)));
+            renderBitmap.Render(canvas);
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+
+            using (FileStream file = File.Create("./image.png"))
+            {
+                encoder.Save(file);
+            }
         }
     }
 }
