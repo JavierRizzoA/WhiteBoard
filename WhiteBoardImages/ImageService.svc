@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WhiteBoardImages.ImageService" CodeBehind="ImageService.svc.cs" %>
