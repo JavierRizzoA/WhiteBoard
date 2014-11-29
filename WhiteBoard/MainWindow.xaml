@@ -1,0 +1,16 @@
+﻿<mui:ModernWindow x:Class="WhiteBoard.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+  Title="MainWindow" Height="350" Width="525"
+                  ContentSource="Pages/Home.xaml">
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="whiteboard" >
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Home" Source="Pages/Home.xaml" />
+                <mui:Link DisplayName="Settings" Source="Pages/Settings.xaml"/>
+                <mui:Link DisplayName="About" Source="Pages/About.xaml"/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+</mui:ModernWindow>
