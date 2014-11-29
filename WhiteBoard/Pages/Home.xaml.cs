@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WiimoteLib;
 
 namespace WhiteBoard.Pages
 {
@@ -20,6 +21,7 @@ namespace WhiteBoard.Pages
     /// </summary>
     public partial class Home : UserControl
     {
+       
         public Home()
         {
             InitializeComponent();

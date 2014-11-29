@@ -12,7 +12,7 @@ Global
 		SccTeamFoundationServer = https://macas.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = WhiteBoard\\WhiteBoard.csproj
-		SccProjectName1 = Hackathon/WhiteBoard/WhiteBoard
+		SccProjectName1 = WhiteBoard
 		SccLocalPath1 = WhiteBoard
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
