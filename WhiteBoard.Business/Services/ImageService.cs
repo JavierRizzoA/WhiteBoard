@@ -18,10 +18,11 @@ namespace WhiteBoard.Business.Services
 
         public ResponseResult<IEnumerable<Dataimage>> ObatainSavedimages()
         {
+            var imgSVC = new ServiceImage.ImageService();
             var response = new ResponseResult<IEnumerable<Dataimage>>();
             try
             {
-                response.Data = _imgSVC.SavedImages().Select(x => new Dataimage { ImageUri = new Uri(x) });
+                response.Data = imgSVC.SavedImages().Select(x => new Dataimage { ImageUri = new Uri(x) });
             }
             catch (Exception ex)
             {
