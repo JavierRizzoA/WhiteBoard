@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using WhiteBoard.Business.Services;
 using WhiteBoard.Models.Data;
-
+using System.Linq;
 namespace WhiteBoard.Pages
 {
     /// <summary>
@@ -26,11 +26,21 @@ namespace WhiteBoard.Pages
 
             if (response.Succesfull)
             {
-                lvImages.ItemsSource = new ObservableCollection<Dataimage>(response.Data);
+                if (response.Data.ToList().Count <= 0)
+                {
+                    LBLMsg.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    lvImages.ItemsSource = new ObservableCollection<Dataimage>(response.Data);
+                    LBLMsg.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
-                MessageBox.Show("Error!");
+                Dialogs.ErrorDialog ed= new Dialogs.ErrorDialog();
+                ed.SetMessage("Cannot connect to the server");
+                ed.ShowDialog();
             }
         }
     }

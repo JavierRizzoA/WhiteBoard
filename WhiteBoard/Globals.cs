@@ -7,6 +7,6 @@ namespace WhiteBoard
 {
     class Globals
     {
-        public static uint color = 0xFF0000FF;
+        public static String color = "#FF0000FF";
     }
 }

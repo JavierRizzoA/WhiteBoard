@@ -33,5 +33,9 @@ namespace WhiteBoard.Dialogs
         {
             this.message.Text = message;
         }
+        public void SetTitle(String message)
+        {
+            this.Title = message;
+        }
     }
 }

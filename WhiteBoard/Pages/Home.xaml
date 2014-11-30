@@ -12,22 +12,19 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"></ColumnDefinition>
                         <ColumnDefinition Width="5*" ></ColumnDefinition>
-                        <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Margin="10">
                         <Button x:Name="BtnConnect" Content="Connect to Wiimote" Click="BtnConnect_Click"></Button>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Margin="10">
-                        <Button x:Name="BtnSetBoundaries" Content="Set boundaries" Click="BtnSetBoundaries_Click" ></Button>
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock VerticalAlignment="Center" FontSize="20" Text="0" />
+                        <Button x:Name="BtnSetBoundaries" Content="Clear Whiteboard" Click="BtnSetBoundaries_Click" ></Button>
                     </StackPanel>
                 </Grid>
-                
+                <Separator BorderThickness="0,10"/>
                 <Canvas Width="500" Height="300" Background="White" x:Name="canvas">
                     
                 </Canvas>
+                <Separator BorderThickness="0,10"/>
                 <Button x:Name="Save" Content="Save as image" Click="Save_Click">
                     
                 </Button>

@@ -79,9 +79,10 @@ namespace WhiteBoard.Pages
             System.Drawing.Point p = new System.Drawing.Point((int)(irState.IRSensors[0].RawPosition.X / 3), (int)(irState.IRSensors[0].RawPosition.Y / 3));
             App.Current.Dispatcher.Invoke((Action)delegate
             {
+                System.Windows.Media.Color color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(Globals.color);
                 System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
-                rect.Stroke = new SolidColorBrush(Colors.Blue);
-                rect.Fill = new SolidColorBrush(Colors.Blue);
+                rect.Stroke = new SolidColorBrush(color);
+                rect.Fill = new SolidColorBrush(color);
                 rect.Width = 3;
                 rect.Height = 3;
                 Canvas.SetLeft(rect, p.X);
@@ -110,24 +111,34 @@ namespace WhiteBoard.Pages
 
                 response = _imgService.SaveImage(memoryStream.ToArray(), imageName);
             }
+            Application.Current.MainWindow.Height++;
+            Application.Current.MainWindow.Height--;
             if (response.Succesfull)
             {
-                MessageBox.Show("Imagen guardada exitosamente");
+                Dialogs.ErrorDialog ed = new Dialogs.ErrorDialog();
+                ed.SetMessage("Imagen guardada exitosamente");
+                ed.SetTitle("Success!");
+                ed.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Error!");
+                Dialogs.ErrorDialog ed = new Dialogs.ErrorDialog();
+                ed.SetMessage("Cannot connect to the server");
+                ed.ShowDialog();
             }
-            //using (FileStream file = File.Create("./image.png"))
-            //{
-
-            //    encoder.Save(file);
-            //}
+            
         }
 
         private void BtnSetBoundaries_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
+            rect.Stroke = new SolidColorBrush(Colors.White);
+            rect.Fill = new SolidColorBrush(Colors.White);
+            rect.Width = canvas.Width;
+            rect.Height = canvas.Height;
+            Canvas.SetLeft(rect, 0);
+            Canvas.SetBottom(rect, 0);
+            this.canvas.Children.Add(rect);
         }
     }
 }
